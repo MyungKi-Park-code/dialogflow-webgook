@@ -1,0 +1,23 @@
+{
+  "name": "dialogflow-webhook",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD\r # dialogflow-webhook\r =======\r # dialogflow-webgook\r >>>>>>> 7d58e9f41900e0f16494156304753d066a08026b",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyungKi-Park-code/dialogflow-webgook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyungKi-Park-code/dialogflow-webgook/issues"
+  },
+  "homepage": "https://github.com/MyungKi-Park-code/dialogflow-webgook#readme",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^7.2.0"
+  }
+}
