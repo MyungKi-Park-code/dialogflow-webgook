@@ -1,53 +1,13 @@
 import dialogflow from '@google-cloud/dialogflow';
-import { v4 as uuidv4 } from 'uuid';
 
-const projectId = 'pyunghwachatbot-nnhb'; // MK님의 프로젝트 ID
-const sessionId = uuidv4();
-const languageCode = 'ko';
+const projectId = 'rugged-weft-466004-u1'; // 내 프로젝트 ID
 
-// 서비스 키파일 경로 정확히!
+// 환경변수에서 JSON 문자열을 읽어서 객체로 변환
+const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
+
 const sessionClient = new dialogflow.SessionsClient({
-  keyFilename: 'C:/Users/USER/Downloads/rugged-weft-466004-u1-5f0cb77abd5c.json'
+  credentials: credentials,
+  projectId: projectId,
 });
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).send('Method Not Allowed');
-  }
-
-  const userMessage = req.body.userRequest?.utterance || '메시지 없음';
-
-  const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
-
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: userMessage,
-        languageCode: languageCode,
-      },
-    },
-  };
-
-  try {
-    const responses = await sessionClient.detectIntent(request);
-    const result = responses[0].queryResult;
-    const answer = result.fulfillmentText || '죄송해요, 이해하지 못했어요.';
-
-    return res.status(200).json({
-      version: '2.0',
-      template: {
-        outputs: [
-          {
-            simpleText: {
-              text: answer,
-            },
-          },
-        ],
-      },
-    });
-  } catch (error) {
-    console.error('Dialogflow 에러:', error);
-    return res.status(500).send('서버 에러');
-  }
-}
+// 여기에 내 기존 Dialogflow 처리 코드 이어서 작성
