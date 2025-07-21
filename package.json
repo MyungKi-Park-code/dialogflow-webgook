@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MyungKi-Park-code/dialogflow-webgook#readme",
   "dependencies": {
-    "@google-cloud/dialogflow": "^7.2.0"
+    "@google-cloud/dialogflow": "^7.2.0",
+    "uuid": "^11.1.0"
   }
 }
